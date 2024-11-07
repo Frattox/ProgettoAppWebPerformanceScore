@@ -1,4 +1,4 @@
-# ProgettoTirocinio
+# Progetto Tirocinio
 Presento il mio Progetto Formativo creato durante il mio percorso di Tirocinio Curriculare.  
 Lo scopo del progetto è fornire una web-app inseribile nel caso d'uso di un'azienda che cerca di prevedere il valore di produttività (___Performance Score___) del proprio lavoratore in base a dei parametri, relativi sia alla persona in sè che ai servizi e oppurtunità offerte dall'azienda.
 Il progetto è composto da tre parti principali:
