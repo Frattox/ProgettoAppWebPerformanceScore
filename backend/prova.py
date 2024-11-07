@@ -13,9 +13,8 @@ from sklearn.preprocessing import OneHotEncoder, KBinsDiscretizer, MinMaxScaler,
 app = Flask(__name__)
 CORS(app)
 
-PROJECT_PATH = os.path.join('..','Progetto_Performance_Lavoratori')
-MODELS_PATH = os.path.join(PROJECT_PATH,'models')
-MODEL_FILE_NAME = 'RandomForestClassifier.sav'
+MODELS_PATH = '.'
+MODEL_FILE_NAME = 'RandomForestClassifier_grid_search.sav'
 
 onehot_features = ['department','gender','remote_work_frequency','promotions','job_title']
 onehot_enc = OneHotEncoder(sparse_output=False,handle_unknown='infrequent_if_exist')
