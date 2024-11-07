@@ -1,0 +1,4 @@
+<mat-form-field class="example-margin example-width">
+    <mat-label>Value</mat-label>
+    <input matInput type="number" [value]="value" [min]="min" [max]="max" [step]="step"  (input)="onInputChange($event)" required (keydown)="blockManualEntry($event)"/>
+</mat-form-field>

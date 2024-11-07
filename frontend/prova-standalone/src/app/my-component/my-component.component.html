@@ -1,0 +1,172 @@
+<mat-stepper linear #stepper>
+
+  <!-- 1 -->
+  <mat-step>
+    <ng-template matStepLabel>Info</ng-template>
+    <div class="info-box">
+      <h3 class="score-text">Previsione della Produttività del Dipendente</h3>
+      <p>
+        In un contesto aziendale, un obiettivo cruciale per qualsiasi organizzazione è migliorare e ottimizzare le performance
+        dei propri dipendenti. Questo strumento offre una previsione della produttività basata su vari fattori che influenzano il
+        rendimento lavorativo.
+      </p>
+      <p>
+        Attraverso l'analisi di dati generali del dipendente, come esperienza, titolo di studio e
+        condizioni aziendali, questo sistema ti aiuta a stimare l'effettivo livello di produttività di un individuo
+        nel contesto lavorativo specifico in cui si trova.
+      </p>
+      <p>
+        Cominciamo! Compila i dati relativi al dipendente per calcolare il suo performance score.
+      </p>
+    </div>
+    <div>
+      <button mat-button (click)="getFormGeneraliValues(); stepper.next()">Avanti</button>
+    </div>
+  </mat-step>
+
+  <!-- 2 -->
+  <mat-step [stepControl]="generaliGroup" class="centered-content">
+    <form [formGroup]="generaliGroup" class="centered-content">
+      <ng-template matStepLabel>Generali</ng-template>
+
+      <!-- Gender -->
+      <label for="gender">Gender:</label>
+      <app-selector [options]="genderOptions" formControlName="gender" placeholder="Gender" required></app-selector>
+      <br>
+
+      <!-- Age -->
+      <label for="age">Age:</label>
+      <app-cont formControlName="age" placeholder="Age" [min]="18" [max]="65" required></app-cont>
+      <br>
+
+      <!-- Education Level -->
+      <label for="education_level">Education Level:</label>
+      <app-selector [options]="educationOptions" formControlName="education_level" placeholder="Education Level" required></app-selector>
+      
+      <!--Next button-->
+      <div>
+        <button mat-button (click)="getFormGeneraliValues(); stepper.next()">Next</button>
+      </div>
+    </form>
+  </mat-step>
+
+  <!-- 3 -->
+  <mat-step [stepControl]="aziendaGroup" class="centered-content">
+    <form [formGroup]="aziendaGroup" class="centered-content">
+      <ng-template matStepLabel>Dati dall'azienda</ng-template>
+
+      <!-- Department -->
+      <label for="department">Department:</label>
+      <app-selector [options]="departmentOptions" formControlName="department" placeholder="Department" required></app-selector>
+      <br>
+
+      <!-- Job Title -->
+      <label for="job_title">Job Title:</label>
+      <app-selector [options]="jobOptions" formControlName="job_title" placeholder="Job Title" required></app-selector>
+      <br>
+
+      <!-- Monthly Salary -->
+      <label for="monthly_salary">Monthly Salary:</label>
+      <app-cont formControlName="monthly_salary" placeholder="Monthly Salary" [min]="3800.0" [max]="9000.0" [step]="50.0" required></app-cont>
+      <br>
+
+      <!-- Team Size -->
+      <label for="team_size">Team Size:</label>
+      <app-cont formControlName="team_size" placeholder="Team Size" [min]="0" [max]="19" required></app-cont>
+      <br>
+
+      <!--Next button-->
+      <div>
+        <button mat-button (click)="getFormAziendaValues();stepper.next()">Next</button>
+      </div>
+    </form>
+  </mat-step>
+
+  <!-- 4 -->
+  <mat-step [stepControl]="oreGiorniGroup" class="centered-content">
+    <form [formGroup]="oreGiorniGroup" class="centered-content">
+      <ng-template matStepLabel>Giorni e Ore</ng-template>
+
+      <!-- Work Hours Per Week -->
+      <label for="work_hours_per_week">Work Hours Per Week:</label>
+      <app-cont formControlName="work_hours_per_week" placeholder="Work Hours Per Week" [min]="30" [max]="60" required></app-cont>
+      <br>
+
+      <!-- Training Hours -->
+      <label for="training_hours">Training Hours:</label>
+      <app-cont formControlName="training_hours" placeholder="Training Hours" [min]="0" [max]="99" required></app-cont>
+      <br>
+
+      <!-- Remote Work Frequency -->
+      <label for="remote_work_frequency">Remote Work Frequency:</label>
+      <app-selector [options]="remoteOptions" formControlName="remote_work_frequency" placeholder="Remote Work Frequency" required></app-selector>
+      <br>
+
+      <!-- Overtime Hours -->
+      <label for="overtime_hours">Overtime Hours:</label>
+      <app-cont formControlName="overtime_hours" placeholder="Overtime Hours" [min]="0" [max]="29" required></app-cont>
+      <br>
+
+      <!-- Sick Days -->
+      <label for="sick_days">Sick Days:</label>
+      <app-cont formControlName="sick_days" placeholder="Sick Days" [min]="0" [max]="14" required></app-cont>
+      <br>
+
+      <!--Next button-->
+      <div>
+        <button mat-button (click)="getFormOreGiorniValues();stepper.next()">Next</button>
+      </div>
+    </form>
+  </mat-step>
+
+  <!-- 5 -->
+  <mat-step [stepControl]="altroGroup" class="centered-content">
+    <form [formGroup]="altroGroup" class="centered-content">
+      <ng-template matStepLabel>Altro</ng-template>
+
+      <!-- Employee Satisfaction Score -->
+      <label for="employee_satisfaction_score">Employee Satisfaction Score:</label>
+      <app-cont formControlName="employee_satisfaction_score" placeholder="Employee Satisfaction Score" [min]="1.0" [max]="5.0" [step]="0.1" required></app-cont>
+      <br>
+
+      <!-- Promotions -->
+      <label for="promotions">Promotions:</label>
+      <app-cont formControlName="promotions" placeholder="Promotions" [min]="0" [max]="2" required></app-cont>
+      <br>
+
+      <!-- Projects Handled -->
+      <label for="projects_handled">Projects Handled:</label>
+      <app-cont formControlName="projects_handled" placeholder="Projects Handled" [min]="0" [max]="49" required></app-cont>
+      <br>
+
+      <!-- Years at Company -->
+      <label for="years_at_company">Years at Company:</label>
+      <app-cont formControlName="years_at_company" placeholder="Years at Company" [min]="0" [max]="49" required></app-cont>
+      <br>
+
+      <!-- Resigned -->
+      <label for="resigned">Resigned:</label>
+      <app-selector [options]="resignedOptions" formControlName="resigned" placeholder="Resigned" required></app-selector>
+      <br>
+
+      <!--Next button-->
+      <div>
+        <button mat-button (click)="getFormAltroValues();submitData();stepper.next()">Next</button>
+      </div>
+    </form>
+  </mat-step>
+
+  <!-- prediction -->
+  <mat-step>
+    <ng-template matStepLabel>Done</ng-template>
+    <div>
+      @if(isLoading){
+        <mat-spinner></mat-spinner>
+    }@else {
+      <div class="info-box" [ngStyle]="{height: '150px'}">
+        <p class="score-text">Performance score: {{response?.performance_score}}</p>
+      </div>
+    }
+    </div>
+  </mat-step>
+</mat-stepper>
