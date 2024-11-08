@@ -20,6 +20,9 @@ services:
       - 5000:5000
     networks:
       - model_net
+    environment:
+      - FLASK_ENV=development
+      - FLASK_APP=prova.py
     restart: on-failure
 
 networks:

@@ -157,6 +157,37 @@ export class MyComponentComponent {
     this.valuesAltro = this.altroGroup.value;
   }
 
+  getPerformanceScoreColor(score: number) {
+    score = Number(score);
+    if (score === 1) {
+      return 'very-bad';
+    } else if (score === 2) {
+      return 'bad';
+    } else if (score === 3) {
+      return 'not-bad';
+    } else if (score === 4) {
+      return 'good';
+    } else if (score === 5) {
+      return 'very-good';
+    }else return 'not found';
+  }
+
+  getPerformanceLabel(score: number) {
+    score = Number(score);
+    if (score === 1) {
+      return 'Very Bad';
+    } else if (score === 2) {
+      return 'Bad';
+    } else if (score === 3) {
+      return 'Not Bad';
+    } else if (score === 4) {
+      return 'Good';
+    } else if (score === 5) {
+      return 'Very Good';
+    }else return 'not found';
+  }
+  
+
   submitData() {
     //raccolgo i dati
     const allData = {
@@ -176,7 +207,6 @@ export class MyComponentComponent {
     allData.resigned = this.getResignedLabel(this.valuesAltro.resigned);
 
 
-    //invio attraverso una richiesta HTTP di tipo POST
     this.http.post<any>('http://127.0.0.1:5000/', allData).subscribe({
       next: (response:any) => {
         console.log('Risposta dal backend:', response);

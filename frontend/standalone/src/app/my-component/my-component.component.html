@@ -3,7 +3,7 @@
   <!-- 1 -->
   <mat-step>
     <ng-template matStepLabel>Info</ng-template>
-    <div class="info-box">
+    <div class="info-box" class="centered-content">
       <h3 class="score-text">Previsione della Produttività del Dipendente</h3>
       <p>
         In un contesto aziendale, un obiettivo cruciale per qualsiasi organizzazione è migliorare e ottimizzare le performance
@@ -19,7 +19,7 @@
         Cominciamo! Compila i dati relativi al dipendente per calcolare il suo performance score.
       </p>
     </div>
-    <div>
+    <div class="centered-content">
       <button mat-button (click)="getFormGeneraliValues(); stepper.next()">Avanti</button>
     </div>
   </mat-step>
@@ -162,9 +162,9 @@
     <div>
       @if(isLoading){
         <mat-spinner></mat-spinner>
-    }@else {
+     }@else {
       <div class="info-box" [ngStyle]="{height: '150px'}">
-        <p class="score-text">Performance score: {{response?.performance_score}}</p>
+        <p class="score-text" [ngClass]="getPerformanceScoreColor(response?.performance_score)">Performance score: {{getPerformanceLabel(response?.performance_score)}}</p>
       </div>
     }
     </div>

@@ -36,10 +36,32 @@
   font-size: 40px;
   color: #2c6a4b;
   font-weight: 600;
+  text-shadow: 
+  0.5px 0 #000000, 
+  -0.5px 0 #000000, 
+  0 0.5px #000000, 
+  0 -0.5px #000000,
+  0.5px 0.5px #000000, 
+  -0.5px -0.5px #000000, 
+  0.5px -0.5px #000000, 
+  -0.5px 0.5px #000000;}
+
+.very-bad {
+  color: rgb(159, 28, 28);
 }
 
+.bad {
+  color: rgb(146, 103, 25);
+}
 
+.not-bad {
+  color: rgb(140, 140, 21); /* Giallo */
+}
 
+.good {
+  color: rgb(33, 152, 33);
+}
 
-
-
+.very-good {
+  color: rgb(17, 82, 17);
+}
