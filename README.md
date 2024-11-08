@@ -10,7 +10,7 @@ E' possibile utilizzare Docker Container per eseguire il progetto nel suo insiem
 Ecco come fare:
 - Installare *[Docker Desktop](https://www.docker.com/products/docker-desktop/)*
 - Entrare nel path del backend e containerizzarlo attraverso il comando `docker build -t <nome-container-be> .`
-- Entrare nel path del frontend e containerizzarlo attraverso il comando `docker build -t <nome-container-fe> .`
+- Entrare nel path del frontend (in particolare /frontend/standalone) e containerizzarlo attraverso il comando `docker build -t <nome-container-fe> .`
 - Entrare nel path root e generare il __Docker Compose__ composto dai due nuovi container appena creati, attraverso il comando `docker-compose build`
 - Eseguire il docker compose attraverso il comando `docker-compose up`
 
