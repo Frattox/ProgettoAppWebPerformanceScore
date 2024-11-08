@@ -9,6 +9,7 @@ Il progetto è composto da tre parti principali:
 E' possibile utilizzare Docker Container per eseguire il progetto nel suo insieme, evitando problemi di dipendenze e versioni.
 Ecco come fare:
 - Installare *[Docker Desktop](https://www.docker.com/products/docker-desktop/)*
+- Far partire Docker Desktop
 - Entrare nel path del backend e containerizzarlo attraverso il comando `docker build -t <nome-container-be> .`
 - Entrare nel path del frontend (in particolare /frontend/standalone) e containerizzarlo attraverso il comando `docker build -t <nome-container-fe> .`
 - Entrare nel path root e generare il __Docker Compose__ composto dai due nuovi container appena creati, attraverso il comando `docker-compose build`
